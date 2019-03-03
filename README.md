@@ -1,9 +1,15 @@
 # Dotfiles
 
 ## Setup instructions
+```bash
+curl -sL git.io/bdodoiu.dotfiles | sh
+```
+
+## Alternative manual setup
+
 1. clone this repo
 ```bash
-git clone --recursive https://github.com/bdodoiu/dotfiles.git ${ZDOTDIR:-${HOME}}/.dotfiles
+git clone --recursive https://github.com/bdodoiu/dotfiles.git ${HOME}/.dotfiles
 ```
 2. create symlinks
 ```
