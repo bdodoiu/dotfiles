@@ -1,0 +1,41 @@
+ZGEN_PATH="${HOME}/.zgen"
+ZGEN="${ZGEN_PATH}/zgen.zsh"
+
+# Load zgen only if a user types a zgen command
+zgen () {
+	if [[ ! -s ${ZDOTDIR:-${HOME}}/.zgen/zgen.zsh ]]; then
+		git clone --recursive https://github.com/tarjoilija/zgen.git ${ZDOTDIR:-${HOME}}/.zgen
+	fi
+	source ${ZDOTDIR:-${HOME}}/.zgen/zgen.zsh
+	zgen "$@"
+}
+
+# always load zgen?!
+source ${ZDOTDIR:-${HOME}}/.zgen/zgen.zsh
+
+if [[ ! -s ${ZDOTDIR:-${HOME}}/.zgen/init.zsh ]]; then
+  # specify plugins here
+  zgen oh-my-zsh
+  
+  # zgen load zsh-users/zsh-syntax-highlighting
+  zgen oh-my-zsh plugins/gitfast
+  zgen oh-my-zsh plugins/jump 
+  zgen load zsh-users/zsh-autosuggestions
+  zgen load zdharma/fast-syntax-highlighting
+  zgen load agnoster/agnoster-zsh-theme agnoster.zsh-theme
+  
+  # generate the init script from plugins above
+  zgen save
+  zcompile ${ZDOTDIR:-${HOME}}/.zgen/init.zsh
+fi
+
+TERM=xterm-256color
+
+if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
+
+alias j=jump
+
+eval `dircolors ~/.dir_colors`
+
