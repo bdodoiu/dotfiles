@@ -5,6 +5,11 @@
 curl -sL git.io/bdodoiu.dotfiles | sh
 ```
 
+For Powershell use
+```bash
+iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/bdodoiu/dotfiles/master/pwsh/install.ps1'))
+```
+
 ## Alternative manual setup
 
 1. clone this repo
