@@ -48,6 +48,10 @@ function Update {
   UpdateOhMyPosh
 }
 
+function Todo {
+  # install nerd fonts https://www.nerdfonts.com/font-downloads
+  # configure Terminal / powershell profile to use nerd fonts
+}
 
 $CurrentProfile = $PROFILE
 $StartupCommand = ". ""`$Home/.dotfiles/pwsh/startup.ps1"""
