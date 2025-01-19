@@ -30,7 +30,7 @@ function UpdateOhMyPosh {
 }
 
 function CloneFromGit {
-  git clone --recursive git@github.com:bdodoiu/dotfiles.git ${HOME}/.dotfiles
+  git clone --recursive https://github.com/bdodoiu/dotfiles.git ${HOME}/.dotfiles
 }
 
 function UpdateFromGit {
